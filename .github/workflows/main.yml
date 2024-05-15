@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Clone Frontend Project
-        run: git clone https://github.com/username/frontend-project.git
+        run: git clone https://github.com/li-calendar-notepad/li-calendar-vue.git
 
       # - name: Read version from file
       #   id: read_version
