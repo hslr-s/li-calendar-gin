@@ -19,7 +19,7 @@ jobs:
 
       - name: Read version from file
         id: read_version
-        run: echo "APP_VERSION=0.1.1" >> $GITHUB_ENV
+        run: echo "APP_VERSION=$(cut -d '|' -f 2 ./assets/version)" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -40,4 +40,4 @@ jobs:
           platforms: linux/amd64
           # platforms: linux/amd64,linux/arm,linux/arm64
           push: true 
-          tags: ${{ vars.DOCKER_IMAGE_NAME }}:${{ env.APP_VERSION }}
+          tags: ${{ vars.DOCKER_IMAGE_NAME }}:${{ env.APP_VERSION }},${{ vars.DOCKER_IMAGE_NAME }}
